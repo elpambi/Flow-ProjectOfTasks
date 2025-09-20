@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flow | The best way to manage tasks</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <header>
@@ -19,7 +20,54 @@
 </header>
 
 <body>
-    <button>Add task</button>
+
+    <!-- Vista principal: lista de tareas y botón para añadir -->
+    <div id="main-view">
+        <h1>Titulo</h1>
+        <div id="pending-tasks-panel">
+            <h3>Tareas pendientes</h3>
+            <div id="task-list" class="task-list">
+                <!-- Aquí se renderizan las tareas como tarjetas -->
+            </div>
+        </div>
+        <div class="main-actions">
+            <button id="add-task-btn">Add task</button>
+        </div>
+    </div>
+
+
+    <!-- Vista para añadir una nueva tarea -->
+    <div id="add-task-view" style="display:none;">
+        <h2>Creando una nueva tarea</h2>
+        <form id="task-form">
+            <label>Nombre:<br><input type="text" id="task-title" required></label><br>
+            <label>¿Qué hacer?<br><input type="text" id="task-action" required></label><br>
+            <label>¿Alguna explicación extra?<br><textarea id="task-desc"></textarea></label><br>
+            <button type="submit">Add task</button>
+            <button type="button" id="cancel-add-task">Cancelar</button>
+        </form>
+    </div>
+
+    <!-- Vista de detalle de tarea -->
+    <div id="task-detail-view" style="display:none;">
+        <h2 id="detail-title">Titulo</h2>
+        <div class="task-detail-content">
+            <div>
+                <strong>Nombre:</strong> <span id="detail-name"></span> <br>
+                <strong>¿Qué hacer?</strong> <span id="detail-action"></span>
+                <div id="detail-desc"></div>
+            </div>
+            <div class="task-day-panel">
+                <h4>Resto de tareas para ese día</h4>
+                <ul id="tasks-for-day"></ul>
+            </div>
+        </div>
+        <div class="main-actions">
+            <button id="delete-task-btn">Delete task</button>
+            <button id="back-to-main">Volver</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 <footer>
     <p>© 2023 Flow. All rights reserved.</p>
